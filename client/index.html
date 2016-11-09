@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="client/css/styles.css">
+    </head>
+    <body>
+        <div ng-controller="HeaderController" class="navbar navbar-inverse">
+            <div class="navbar-brand">Liquor Sto'</div>
+            <ul class="nav navbar-nav">
+                <li ng-class="getClass('/')"><a href="#/">Dashboard</a></li>
+                <li ng-class="getClass('/products')"><a href="#/products">Products</a></li>
+                <li ng-class="getClass('/orders')"><a href="#/orders">Orders</a></li>
+                <li ng-class="getClass('/customers')"><a href="#/customers">Customers</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div ng-view="">
+            </div>
+        </div>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="client/js/app.js"></script>
+        <script src="client/js/controllers/HeaderController.js"></script>
+        <script src="client/js/controllers/DashboardController.js"></script>
+        <script src="client/js/controllers/CustomersController.js"></script>
+        <script src="client/js/controllers/ProductsController.js"></script>
+        <script src="client/js/controllers/OrdersController.js"></script>
+        <script src="client/js/controllers/DashboardController.js"></script>
+        <script src="client/js/factories/CustomerFactory.js"></script>
+        <script src="client/js/factories/ProductFactory.js"></script>
+        <script src="client/js/factories/OrderFactory.js"></script>
+        <script src="client/js/factories/DashboardFactory.js"></script>
+    </body>
+</html>

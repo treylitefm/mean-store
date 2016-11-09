@@ -1,0 +1,23 @@
+<div class="col-md-3">
+    <input class="form-control" placeholder="Search Nothing...">
+</div>
+<div class="col-md-9">
+    <div class="row">
+        <div class="col-md-3" ng-repeat="product in products">
+            <div class="image-tile">
+                <div class="product" style="background: url({{product.url}})"></div>
+            </div>
+            <p>{{product.name}}</p>
+            <p>({{product.quantity}}) left</p>
+        </div>
+    </div>
+    <div class="row">
+        <h4><u>Recent Orders</u></h4>
+        <p ng-repeat="order in orders"><b>{{order.customer.name}}</b> purchased {{order.quantity}} {{order.product.name}}...({{order.createdAt}})</p>
+    </div>
+    <div class="row">
+        <h4><u>New Customers</u></h4>
+        <p ng-repeat="customer in customers"><b>{{customer.name}}</b> joined the store. ({{customer.createdAt}})</p>
+    </div>
+
+</div>

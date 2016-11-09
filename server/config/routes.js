@@ -1,0 +1,27 @@
+(function(app) {
+    var rest = require('../controllers/rest.js')
+    var customers_rest = rest('Customer')
+    var products_rest = rest('Product')
+    var orders_rest = rest('Order')
+    var orders = require('../controllers/orders.js')
+    var dashboard = require('../controllers/dashboard.js')
+
+    module.exports = function(app) {
+        app.get('/customers', customers_rest.fetch)
+        app.get('/customers/:id', customers_rest.fetchOne)
+        app.post('/customers', customers_rest.create)
+        app.put('/customers/:id', customers_rest.update)
+        app.delete('/customers/:id', customers_rest.delete)
+        app.get('/products', products_rest.fetch)
+        app.get('/products/:id', products_rest.fetchOne)
+        app.post('/products', products_rest.create)
+        app.put('/products/:id', products_rest.update)
+        app.delete('/products/:id', products_rest.delete)
+        app.get('/orders', orders.fetch)
+        app.get('/orders/:id', orders.fetchOne)
+        app.post('/orders', orders.create)
+        app.put('/orders/:id', orders_rest.update)
+        app.delete('/orders/:id', orders_rest.delete)
+        app.get('/dashboard', dashboard.index)
+    }
+})()

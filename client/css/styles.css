@@ -1,0 +1,6 @@
+.image-tile {
+  height: 200px; }
+  .image-tile .product {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    height: 100%; }

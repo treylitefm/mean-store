@@ -1,0 +1,44 @@
+<form class="col-md-6" ng-submit="add()">
+    <h3><u>Add a new order</u></h3>
+    <div class="form-inline">
+        <label>Customer:</label>
+        <select class="form-control" ng-model="order.customer">
+            <option select="selected" value="">Select Customer</option>
+            <option ng-repeat="customer in customers" ng-value="customer._id">{{customer.name}}</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-inline">
+        <label>Order:</label>
+        <input class="form-control" ng-model="order.quantity" placeholder="Quantity...">
+        <select class="form-control" ng-model="order.product">
+            <option select="selected" value="">Select Product</option>
+            <option ng-repeat="product in products" ng-value="product._id">{{product.name}}</option>
+        </select>
+    </div>
+    <br>
+    <button class="btn btn-primary">Order</button>
+</form>
+<br>
+<div class="col-md-offset-9 col-md-3">
+    <input class="form-control" ng-model="search" placeholder="Search Name...">
+</div>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="order in orders | orderBy:'-createdAt' | filter:search">
+            <td>{{order.customer.name}}</td>
+            <td>{{order.product.name}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.createdAt | date:'MMM dd, yyyy-hh:mm:ss a' }}</td>
+        </tr>
+    </tbody>
+</table>
